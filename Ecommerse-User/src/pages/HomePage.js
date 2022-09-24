@@ -4,16 +4,23 @@ import Categories from "../components/home/Categories";
 import Collection from "../components/home/Collection";
 import NewArrival from "../components/home/NewArrival";
 import HomeTop from "../components/home/HomeTop";
-import {Container} from "react-bootstrap";
 import NavMenuDeskTop from "../components/common/NavMenuDeskTop";
 import NavMenuMobile from "../components/common/NavMenuMobile";
 import HomeTopMobile from "../components/home/HomeTopMobile";
 import FooterDeskTop from "../components/common/FooterDeskTop";
+import axios from 'axios';
+import ApiURL from '../api/AppURL';
 
 class HomePage extends Component {
 
     componentDidMount() {
         window.scroll(0,0);
+        this.GetVisitorDetails();
+    }
+
+    GetVisitorDetails=()=>{
+    
+        axios.get(ApiURL.VisitorDetails).then().catch();
     }
 
     render() {
