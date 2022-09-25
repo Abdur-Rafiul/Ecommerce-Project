@@ -4,6 +4,7 @@ class ApiURL{
 
   static VisitorDetails = this.BaseUrl+"GetVisitorDetails"
   static SendContactDetails = this.BaseUrl+"SendContactDetails"
+  static SendSiteInfo = this.BaseUrl+"SendSiteInfo"
 }
 
 export default ApiURL;

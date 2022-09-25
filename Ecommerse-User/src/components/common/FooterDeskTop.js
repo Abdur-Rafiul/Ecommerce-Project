@@ -13,7 +13,7 @@ class FooterDesktop extends Component {
             <div className="m-0 p-0 bg-white mt-5  shadow-sm">
                 <div className="ms-5" id="google_translate_element"></div>
                 <div className="">
-                    <div className="ph-item">
+                    {/* <div className="ph-item">
                         <div className="ph-col-12">
                             <div className="ph-row">
                                 <div className="ph-col-12"/>
@@ -22,7 +22,7 @@ class FooterDesktop extends Component {
                                 <div className="ph-col-12"/>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="p-0">
                     <Container>
