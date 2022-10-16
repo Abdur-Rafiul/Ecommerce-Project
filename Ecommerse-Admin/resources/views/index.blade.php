@@ -16,7 +16,7 @@
     <title>Ecommerce Admin Panel</title>
 
     @viteReactRefresh
-    @vite(['resources/css/app.css','resources/js/app.jsx'])
+    @vite(['resources/css/app.css','resources/js/main.jsx'])
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

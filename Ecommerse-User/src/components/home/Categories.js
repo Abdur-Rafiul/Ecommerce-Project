@@ -1,9 +1,45 @@
 import React, {Component} from 'react';
 import {Fragment} from "react";
 import {Card, Col, Container, Row} from "react-bootstrap";
+import axios from "axios";
+import ApiURL from "../../api/AppURL";
 
 class Categories extends Component {
+
+    constructor(props) {
+        super();
+        this.state={
+            MenuData:[]
+        }
+    }
+
+    componentDidMount() {
+
+        axios
+            .get(ApiURL.SendCategoryDetails)
+            .then((response) => {
+
+                this.setState({ MenuData: response.data});
+
+            })
+            .catch((error) => {});
+    }
+
+
     render() {
+        let ParentList = this.state.MenuData;
+        let MyView = ParentList.map((ParentList,i)=>{
+            return <Col  key={i.toString()} className="p-0" xl={2} lg={2} md={3} sm={6} xs={6}>
+
+                <Card className="w-100 card">
+                    <img className="categories" src={'http://'+ParentList.ParentCategoryImg} />
+                    <Card.Body>
+                        <p className="category-name">{ParentList.ParentCategoryName}</p>
+
+                    </Card.Body>
+                </Card>
+            </Col>
+        })
         return (
             <Fragment>
                 <Container className="text-center p-2" fluid={true}>
@@ -11,194 +47,7 @@ class Categories extends Component {
                     <h5 className="section-title">CATEGORIES</h5>
                     <p className="section-sub-title">Some of Our Exclusive Collection, You May Like</p>
                     <Row>
-                        <Col key={1} className="p-0" xl={6} lg={6} md={6} sm={12} xs={12}>
-                            <Row>
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/shoes 12.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/bag 7.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/shoes 1.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/phone1.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                        </Col>
-
-
-                        <Col className="p-0" xl={6} lg={6} md={6} sm={12} xs={12}>
-                            <Row>
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/smart%201.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/shoes 7.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/phone 2.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/smart%203.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                        </Col>
-
-
-                    </Row>
-
-
-                    <Row>
-                        <Col className="p-0" xl={6} lg={6} md={6} sm={12} xs={12}>
-                            <Row>
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/shoes 12.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/bag 7.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/shoes 1.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/phone1.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                        </Col>
-
-
-                        <Col className="p-0" xl={6} lg={6} md={6} sm={12} xs={12}>
-                            <Row>
-                                <Col className="p-0"  xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/smart%201.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/shoes 7.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/phone 2.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-
-                                <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
-                                    <Card className="w-100 card">
-                                        <img className="categories" src="/images/smart%203.jpg" alt="shoes"/>
-                                        <Card.Body>
-                                            <p className="category-name">CATEGORY NAME</p>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                        </Col>
-
-
+                                {MyView}
                     </Row>
                 </Container>
             </Fragment>
