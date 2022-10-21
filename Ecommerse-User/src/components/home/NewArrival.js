@@ -1,9 +1,11 @@
 import React, {Component, Fragment} from 'react';
-import {Card, Container, Row} from "react-bootstrap";
+import {Card, Col, Container, Row} from "react-bootstrap";
 // Import css files
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import axios from "axios";
+import ApiURL from "../../api/AppURL";
 
 class NewArrival extends Component {
 
@@ -11,6 +13,10 @@ class NewArrival extends Component {
         super();
         this.next = this.next.bind(this)
         this.prev = this.prev.bind(this)
+
+        this.state={
+            ProductData:[]
+        }
     }
 
     next(){
@@ -20,7 +26,20 @@ class NewArrival extends Component {
     prev(){
         this.slider.slickPrev();
     }
+
+    componentDidMount() {
+        axios
+            .get(ApiURL.ProductListByRemark("NEW"))
+            .then((response) => {
+
+                this.setState({ ProductData: response.data});
+
+            })
+            .catch((error) => {});
+    }
     render() {
+
+
         var settings = {
             dots: false,
             infinite: true,
@@ -57,6 +76,43 @@ class NewArrival extends Component {
                 }
             ]
         };
+
+        let MyList = this.state.ProductData;
+        let MyView = MyList.map((ProductList,i)=> {
+
+            if(ProductList.special_price == "NA"){
+                return <div>
+                            <Card className="image-box1 card w-100 ">
+                                <img className="" src={ProductList.images} alt="shoes"/>
+                                <Card.Body>
+                                    <p className="product-name-on-card">{ProductList.title}</p>
+                                    <p className="product-price-on-card">Price: {ProductList.price}</p>
+                                </Card.Body>
+                            </Card>
+                        </div>
+
+
+
+            }else{
+                return <div>
+                            <Card className="image-box1 card w-100 ">
+                                <img className="" src={ProductList.images} alt="shoes"/>
+                                <Card.Body>
+                                    <p className="product-name-on-card">{ProductList.title}</p>
+                                    <p className="product-price-on-card"><strike><span className="text-muted">Price: {ProductList.price}</span></strike> {ProductList.special_price}</p>
+
+                                </Card.Body>
+                            </Card>
+                        </div>
+
+
+
+
+            }
+
+
+
+        })
         return (
             <Container className="text-center" fluid={true}>
             <Container className="text-center" fluid={true}>
@@ -74,78 +130,7 @@ class NewArrival extends Component {
 
                     <div className="mt-3 mb-4 p-0">
                     <Slider ref={c=>(this.slider=c)} {...settings}>
-                        <div>
-                            <Card className="image-box1 card w-100 ">
-                                <img className="" src="/images/shoes 2.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className="image-box1 card w-100">
-                                <img className="" src="/images/shoes 3.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className="image-box1 card w-100">
-                                <img className="" src="/images/shoes 6.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className="image-box1 card w-100 ">
-                                <img className="" src="/images/shoes 7.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className="image-box1 card w-100 ">
-                                <img className="" src="/images/shoes 8.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className="image-box1 card w-100 ">
-                                <img className="" src="/images/shoes 9.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className="image-box1 card w-100 ">
-                                <img className="" src="/images/shoes 10.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div>
-                            <Card className="image-box1 card w-100">
-                                <img className="" src="/images/shoes 11.jpg" alt="shoes"/>
-                                <Card.Body>
-                                    <p className="product-name-on-card">PUMA Men's Alphacat Palmer Iced Tea Golf Shoe</p>
-                                    <p className="product-price-on-card">Price: 3000TK</p>
-                                </Card.Body>
-                            </Card>
-                        </div>
+                        {MyView}
                     </Slider>
                 </div>
 

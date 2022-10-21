@@ -7,6 +7,19 @@ class ApiURL{
   static SendSiteInfo = this.BaseUrl+"SendSiteInfo"
   static SendCategoryDetails = this.BaseUrl+"SendCategoryDetails"
 
+  static ProductListByRemark(Remark){
+    return this.BaseUrl+"ProductListByRemark/"+Remark;
+  }
+  static ProductListByCategory(Category){
+    return this.BaseUrl+"ProductListByCategory/"+Category;
+  }
+
+  static ProductListBySubCategory(Category, SubCategory){
+    return this.BaseUrl+"ProductListBySubCategory/"+Category+"/"+SubCategory;
+  }
+
+
+
 }
 
 export default ApiURL;
