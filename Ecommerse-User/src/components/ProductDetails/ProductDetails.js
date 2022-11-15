@@ -317,16 +317,16 @@ class ProductDetails extends Component {
                                             zoomSrc={this.state.previewImg} />
                                         <Container className="my-3">
                                             <Row>
-                                                <Col className="p-0 image-box m-0"  md={3} lg={3} sm={3} xs={3}>
+                                                <Col className="p-0  m-0"  md={3} lg={3} sm={3} xs={3}>
                                                     <img onClick={this.imgOnclick} className="w-100 Product-sm-img" src={img2} alt=""/>
                                                 </Col>
-                                                <Col className="p-0 image-box m-0" md={3} lg={3} sm={3} xs={3}>
+                                                <Col className="p-0  m-0" md={3} lg={3} sm={3} xs={3}>
                                                     <img onClick={this.imgOnclick} className="w-100 Product-sm-img" src={img3} alt=""/>
                                                 </Col>
-                                                <Col className="p-0 image-box m-0" md={3} lg={3} sm={3} xs={3}>
+                                                <Col className="p-0  m-0" md={3} lg={3} sm={3} xs={3}>
                                                     <img onClick={this.imgOnclick} className="w-100 Product-sm-img" src={img4} alt=""/>
                                                 </Col>
-                                                <Col className="p-0 image-box m-0" md={3} lg={3} sm={3} xs={3}>
+                                                <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
                                                     <img onClick={this.imgOnclick} className="w-100 Product-sm-img" src={img1} alt=""/>
                                                 </Col>
                                             </Row>
