@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import axios from "axios";
 import ApiURL from "../../api/AppURL";
+import NewArrivalPlaceholder from "../Placeholder/NewArrivalPlaceholder";
+import {Link} from "react-router-dom";
 
 class NewArrival extends Component {
 
@@ -15,7 +17,9 @@ class NewArrival extends Component {
         this.prev = this.prev.bind(this)
 
         this.state={
-            ProductData:[]
+            ProductData:[],
+            isLoading:"",
+            MainDiv:"d-none"
         }
     }
 
@@ -32,7 +36,7 @@ class NewArrival extends Component {
             .get(ApiURL.ProductListByRemark("NEW"))
             .then((response) => {
 
-                this.setState({ ProductData: response.data});
+                this.setState({ ProductData: response.data,isLoading:'d-none',MainDiv:' '});
 
             })
             .catch((error) => {});
@@ -82,6 +86,7 @@ class NewArrival extends Component {
 
             if(ProductList.special_price == "NA"){
                 return <div>
+                    <Link to={"ProductDetails/"+ProductList.product_code}>
                             <Card className="image-box1 card w-100 ">
                                 <img className="" src={ProductList.images} alt="shoes"/>
                                 <Card.Body>
@@ -89,12 +94,14 @@ class NewArrival extends Component {
                                     <p className="product-price-on-card">Price: {ProductList.price}</p>
                                 </Card.Body>
                             </Card>
+                    </Link>
                         </div>
 
 
 
             }else{
                 return <div>
+                    <Link to={"ProductDetails/"+ProductList.product_code}>
                             <Card className="image-box1 card w-100 ">
                                 <img className="" src={ProductList.images} alt="shoes"/>
                                 <Card.Body>
@@ -103,6 +110,7 @@ class NewArrival extends Component {
 
                                 </Card.Body>
                             </Card>
+                    </Link>
                         </div>
 
 
@@ -114,29 +122,35 @@ class NewArrival extends Component {
 
         })
         return (
-            <Container className="text-center" fluid={true}>
-            <Container className="text-center" fluid={true}>
-                <h5 className="section-title">NEW ARRIVAL</h5>
-                <p className="section-sub-title">Some of Our Exclusive Collection, You May Like</p>
+            <Fragment>
+                <NewArrivalPlaceholder isLoading={this.state.isLoading}/>
+                <div className={this.state.MainDiv}>
+                    <Container className="text-center" fluid={true}>
+                        <Container className="text-center" fluid={true}>
+                            <h5 className="section-title">NEW ARRIVAL</h5>
+                            <p className="section-sub-title">Some of Our Exclusive Collection, You May Like</p>
 
-                <a className="btn btn-sm ms-2 site-btn" onClick={this.prev}>
+                            <a className="btn btn-sm ms-2 site-btn" onClick={this.prev}>
 
-                    <i className="fa fa-angle-left"></i>
-                </a>
+                                <i className="fa fa-angle-left"></i>
+                            </a>
 
-                <a className="btn btn-sm ms-2 site-btn" onClick={this.next}>
-                    <i className="fa fa-angle-right"></i>
-                </a>
+                            <a className="btn btn-sm ms-2 site-btn" onClick={this.next}>
+                                <i className="fa fa-angle-right"></i>
+                            </a>
 
-                    <div className="mt-3 mb-4 p-0">
-                    <Slider ref={c=>(this.slider=c)} {...settings}>
-                        {MyView}
-                    </Slider>
+                            <div className="mt-3 mb-4 p-0">
+                                <Slider ref={c=>(this.slider=c)} {...settings}>
+                                    {MyView}
+                                </Slider>
+                            </div>
+
+
+                        </Container>
+                    </Container>
                 </div>
+            </Fragment>
 
-
-            </Container>
-            </Container>
         );
     }
 }

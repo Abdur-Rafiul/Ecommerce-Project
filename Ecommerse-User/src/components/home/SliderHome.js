@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import {Container} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 class SliderHome extends Component {
     render() {
@@ -17,26 +18,42 @@ class SliderHome extends Component {
             autoplaySpeed:3000
         };
 
+        const SliderData = this.props.data;
+        const SliderView =  SliderData.map((SliderList, i)=>{
+
+            return <div  className="container-fluid  overflow-hidden w-100 shadow-sm">
+                <div style={{backgroundColor:SliderList.bg_color}} className="row card-body mt-5">
+                    <div className="col-md-6 slider-title-div text-center mt-5 pt-5">
+                        <h1 style={{color:SliderList.text_color}} className="slider-title mt-5">{SliderList.title}</h1>
+                        <h1 style={{color:SliderList.text_color}} className="slider-sub-title  ">
+                            {SliderList.sub_title}
+                        </h1>
+                        <Link to={"ProductDetails/"+SliderList.product_Code} className="btn site-btn px-5">More Info</Link>
+                    </div>
+                        <div className="col-md-6 text-center">
+                            <img className="sliderImg w-100 h-100 p-5" src= {SliderList.images} alt=""/>
+                        </div>
+                    X
+                </div>
+
+            </div>
+
+        })
+
+
         return (
-            <Fragment>
-                <Container fluid={true} className="slider ">
 
 
-            <div>
+
+
+
 
                 <Slider  {...settings} >
-                    <div>
-                        <img className="slider-img" src="/images/cart_4.jpg" alt=""/>
-                    </div>
-
-                    <div>
-                        <img className="slider-img" src="/images/ba -1.jpg" alt=""/>
-                    </div>
+                    {SliderView}
 
                 </Slider>
-            </div>
-                </Container>
-            </Fragment>
+
+
         );
     }
 }

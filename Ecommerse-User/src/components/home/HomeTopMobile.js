@@ -10,7 +10,7 @@ class HomeTopMobile extends Component {
                 <Container fluid={true} className="mt-5">
                     <Row>
                         <Col className="" lg={12} md={12} sm={12}>
-                            <SliderHome/>
+
                         </Col>
                     </Row>
                 </Container>

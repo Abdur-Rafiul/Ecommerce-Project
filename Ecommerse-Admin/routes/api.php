@@ -5,6 +5,8 @@ use App\Http\Controllers\SiteinfoController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\CategoryDetailsController;
 use App\Http\Controllers\ProductListController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ProductDetailsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +19,7 @@ Route::get('/ProductListByRemark/{remark}',[ProductListController::class, 'Produ
 Route::get('/ProductListBySubCategory/{Category}/{SubCategory}',[ProductListController::class, 'ProductListBySubCategory']);
 Route::get('/ProductListByRemark/{remark}',[ProductListController::class, 'ProductListByRemark']);
 Route::get('/ProductListByCategory/{Category}',[ProductListController::class, 'ProductListByCategory']);
+Route::get('/SendSliderInfo',[SliderController::class, 'SendSliderInfo']);
+Route::get('/ProductDetails/{code}',[ProductDetailsController::class, 'ProductDetails']);
 
 

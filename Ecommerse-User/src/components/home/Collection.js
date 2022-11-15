@@ -2,12 +2,16 @@ import React, {Component, Fragment} from 'react';
 import {Card, Col, Container, Row} from "react-bootstrap";
 import axios from "axios";
 import ApiURL from "../../api/AppURL";
+import SpecialCollectionPlaceholder from "../Placeholder/SpecialCollectionPlaceholder";
+import {Link} from "react-router-dom";
 
 class Collection extends Component {
     constructor() {
         super();
         this.state={
-            ProductData:[]
+            ProductData:[],
+            isLoading:"TopSection",
+            MainDiv:"d-none"
         }
     }
 
@@ -16,7 +20,7 @@ class Collection extends Component {
             .get(ApiURL.ProductListByRemark("COLLECTION"))
             .then((response) => {
 
-                this.setState({ ProductData: response.data});
+                this.setState({ ProductData: response.data,isLoading:'d-none',MainDiv:' '});
 
             })
             .catch((error) => {});
@@ -28,7 +32,7 @@ class Collection extends Component {
 
             if(ProductList.special_price == "NA"){
                 return  <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
+                    <Link to={"ProductDetails/"+ProductList.product_code}>
                     <Card className="image-box1 card w-100">
                         <img className="" src={ProductList.images} alt="shoes"/>
                         <Card.Body>
@@ -37,10 +41,11 @@ class Collection extends Component {
 
                         </Card.Body>
                     </Card>
+                    </Link>
                 </Col>
             }else{
                 return  <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
-
+                    <Link to={"ProductDetails/"+ProductList.product_code}>
                     <Card className="image-box1 card w-100">
                         <img className="" src={ProductList.images} alt="shoes"/>
                         <Card.Body>
@@ -48,6 +53,7 @@ class Collection extends Component {
                             <p className="product-price-on-card"><strike><span className="text-muted">Price: {ProductList.price}</span></strike> {ProductList.special_price}</p>
                         </Card.Body>
                     </Card>
+                    </Link>
                 </Col>
 
             }
@@ -58,14 +64,18 @@ class Collection extends Component {
 
         return (
             <Fragment>
-                <Container className="text-center card p-3 mb-3" fluid={true}>
+                <SpecialCollectionPlaceholder isLoading={this.state.isLoading}/>
+                <div className={this.state.MainDiv}>
+                    <Container className="text-center card p-3 mb-3" fluid={true}>
 
-                    <h5 className="section-title">SPECIAL COLLECTIONS</h5>
-                    <p className="section-sub-title">Some of Exclusive Collection, you May Like</p>
-                    <Row>
-                        {MyView}
-                    </Row>
-                </Container>
+                        <h5 className="section-title">SPECIAL COLLECTIONS</h5>
+                        <p className="section-sub-title">Some of Exclusive Collection, you May Like</p>
+                        <Row>
+                            {MyView}
+                        </Row>
+                    </Container>
+                </div>
+
             </Fragment>
         );
     }

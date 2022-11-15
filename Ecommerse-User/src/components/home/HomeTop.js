@@ -4,14 +4,18 @@ import MegaMenu from "./MegaMenu";
 import SliderHome from "./SliderHome";
 import axios from "axios";
 import ApiURL from "../../api/AppURL";
-import {toast} from "react-toastify";
+import SliderLoader from "../Placeholder/SliderLoader";
+
 
 class HomeTop extends Component {
 
     constructor(props) {
         super();
         this.state={
-            MenuData:[]
+            MenuData:[],
+            SliderData:[],
+            isLoading:"TopSection",
+            MainDiv:"d-none"
         }
     }
 
@@ -25,6 +29,14 @@ class HomeTop extends Component {
 
             })
             .catch((error) => {});
+
+        //Slider Info
+
+        axios.get(ApiURL.SendSliderInfo).then(response=>{
+            this.setState({SliderData:response.data,isLoading:'d-none',MainDiv:' '})
+        }).catch(error=>{
+
+        })
     }
 
 
@@ -32,6 +44,10 @@ class HomeTop extends Component {
     render() {
         return (
             <Fragment>
+                <SliderLoader isLoading={this.state.isLoading} />
+                <div className={this.state.MainDiv}>
+
+                </div>
                 <Container fluid={true} className="mt-5">
                     <Row>
                         <Col lg={3} md={3} sm={12}>
@@ -39,7 +55,7 @@ class HomeTop extends Component {
                         </Col>
 
                         <Col lg={9} md={9} sm={12}>
-                             <SliderHome/>
+                             <SliderHome data={this.state.SliderData}/>
                         </Col>
                     </Row>
                 </Container>
