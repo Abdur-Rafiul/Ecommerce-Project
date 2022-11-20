@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,8 @@ Route::get('/SendSliderInfo',[SliderController::class, 'SendSliderInfo']);
 Route::get('/ProductDetails/{code}',[ProductDetailsController::class, 'ProductDetails']);
 Route::get('/NotificationHistory',[NotificationController::class, 'NotificationHistory']);
 
+Route::get('/ProductBySearch/{key}',[ProductListController::class, 'ProductBySearch']);
+Route::get('/SimilarProduct/{subcategory}',[ProductListController::class, 'SimilarProduct']);
+Route::post('/postReview',[ReviewController::class, 'postReview']);
+Route::get('/reviewList/{code}',[ReviewController::class, 'reviewList']);
 

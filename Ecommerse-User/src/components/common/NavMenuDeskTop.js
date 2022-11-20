@@ -1,8 +1,40 @@
 import React, {Component, Fragment} from 'react';
 import {Button, Col, Container, Nav, Navbar, Row} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class NavMenuDeskTop extends Component {
+
+    constructor() {
+        super();
+        this.state={
+            SearchKey:"",
+            SearchRedirectStatus: false,
+        }
+        this.SearchChange = this.SearchChange.bind(this)
+        this.SearchOnClick = this.SearchOnClick.bind(this)
+        this.SearchRedirect = this.SearchRedirect.bind(this)
+    }
+
+    SearchChange(event){
+      let SearchKey = event.target.value;
+      this.setState({SearchKey:SearchKey});
+    }
+
+    SearchOnClick(){
+
+        let SearchKey = this.state.SearchKey;
+        if(SearchKey.length>=2){
+            this.setState({SearchRedirectStatus:true})
+        }
+    }
+
+    SearchRedirect(){
+        if(this.state.SearchRedirectStatus===true){
+
+            return <Redirect to={"/ProductListBySearch/"+this.state.SearchKey} />
+
+        }
+    }
     render() {
         return (
             <Fragment>
@@ -17,8 +49,8 @@ class NavMenuDeskTop extends Component {
 
                             <Col lg={4} md={4} sm={12} xs={12}>
                                 <div className="input-group w-100">
-                                    <input type="text" className="form-control" aria-label="Text Input"/>
-                                  <button type="button"  className="btn site-btn"><i className="fa fa-search"></i></button>
+                                    <input onChange={this.SearchChange} type="text" className="form-control" aria-label="Text Input"/>
+                                  <button onClick={this.SearchOnClick}  type="button"  className="btn site-btn"><i className="fa fa-search"></i></button>
                                 </div>
                             </Col>
 
@@ -29,6 +61,7 @@ class NavMenuDeskTop extends Component {
                                 <Link to="/onboard"  className="h4 btn">LOGIN</Link>
                             </Col>
                         </Row>
+                        {this.SearchRedirect()}
                     </Container>
 
 

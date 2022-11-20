@@ -12,7 +12,7 @@ class SearchList extends Component {
                 return <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
                     <Link to={"/productDetails/"+ProductList.product_code}>
                         <Card className="card h-100 w-100  image-box ">
-                            <img src={ProductList.image}/>
+                            <img src={ProductList.images}/>
                             <Card.Body>
                                 <h5 className="product-name-on-card">{ProductList.title }</h5>
                                 <p className="product-price-on-card">Price: { ProductList.price}TK</p>
@@ -26,7 +26,7 @@ class SearchList extends Component {
                 return <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
                     <Link to={"/productDetails/"+ProductList.product_code}>
                         <Card className="card h-100 w-100  image-box ">
-                            <img src={ProductList.image}/>
+                            <img src={ProductList.images}/>
                             <Card.Body>
                                 <h5 className="product-name-on-card">{ProductList.title }</h5>
                                 <p className="product-price-on-card">
@@ -42,7 +42,7 @@ class SearchList extends Component {
 
         return (
             <Fragment>
-                <Container className="text-center TopSection" fluid={true}>
+                <Container className="text-center mt-5 py-5 TopSection" fluid={true}>
                     <Breadcrumb>
                         <Breadcrumb.Item> <Link to="/">Home</Link>    </Breadcrumb.Item>
                         <Breadcrumb.Item> <Link to={"/ProductListBySearch/"+SearchKey}>Search Result For: {SearchKey}</Link>    </Breadcrumb.Item>

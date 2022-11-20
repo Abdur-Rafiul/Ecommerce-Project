@@ -3,13 +3,13 @@ import {Container, Row, Col, Breadcrumb} from "react-bootstrap";
 import ReactHtmlParser from "react-html-parser";
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
-// import SuggestedProducts from "./SuggestedProducts";
+ import SuggestedProducts from "./SuggestedProduct";
 import ReviewList from "./ReviewList";
 import {Link} from "react-router-dom";
 // import LocalStorageHelper from "../../LocalStorageHelper/LocalStorageHelper";
 // import cogoToast from "cogo-toast";
 import axios from "axios";
-import ApiURL from "../../api/AppURL";
+//import ApiURL from "../../api/AppURL";
 import {Redirect} from "react-router";
 class ProductDetails extends Component {
     constructor() {
@@ -311,10 +311,13 @@ class ProductDetails extends Component {
                             <Row className=" shadow-sm  bg-white">
                                 <Col className="p-3 animated " md={6} lg={6} sm={12} xs={12}>
                                         <InnerImageZoom
+
                                             zoomType={"hover"}
                                             zoomScale={1.8}
                                             src={this.state.previewImg}
-                                            zoomSrc={this.state.previewImg} />
+                                            zoomSrc={this.state.previewImg}
+
+                                        />
                                         <Container className="my-3">
                                             <Row>
                                                 <Col className="p-0  m-0"  md={3} lg={3} sm={3} xs={3}>
@@ -386,12 +389,12 @@ class ProductDetails extends Component {
                         </Col>
                         <Col className="p-1" md={6} lg={6} sm={12} xs={12}>
                             <div className="shadow-sm p-3 bg-white">
-                                {/*<ReviewList code={product_code}/>*/}
+                                <ReviewList code={product_code}/>
                             </div>
                         </Col>
                     </Row>
                 </Container>
-                {/*<SuggestedProducts subcategory={subcategory}/>*/}
+                <SuggestedProducts subcategory={subcategory}/>
                 {/*{this.PageRefresh()}*/}
                 {/*{this.PageRedirect()}*/}
                 {/*{this.PageRedirectToLogin()}*/}

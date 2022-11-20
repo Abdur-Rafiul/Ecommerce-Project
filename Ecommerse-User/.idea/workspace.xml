@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d180353b-a939-4db4-a052-7ab76411a1dc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +84,9 @@
       <workItem from="1668081487894" duration="608000" />
       <workItem from="1668083627418" duration="1792000" />
       <workItem from="1668176041417" duration="5370000" />
-      <workItem from="1668498964649" duration="9306000" />
+      <workItem from="1668498964649" duration="9896000" />
+      <workItem from="1668682802509" duration="9656000" />
+      <workItem from="1668760152517" duration="6962000" />
     </task>
     <servers />
   </component>
