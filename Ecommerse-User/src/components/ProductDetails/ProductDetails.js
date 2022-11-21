@@ -53,55 +53,55 @@ class ProductDetails extends Component {
   }
 
 
-    // addToCart=()=>{
-    //    if(LocalStorageHelper.getUserMobile()!==null){
-    //        let isSize= this.state.isSize;
-    //        let isColor= this.state.isColor;
-    //        let productCode=this.state.productCode;
-    //        let color=this.state.color;
-    //        let size=this.state.size;
-    //        let quantity=this.state.quantity;
-    //        let Mobile=LocalStorageHelper.getUserMobile();
-    //
-    //        if(isColor==="YES" && color.length===0){
-    //            cogoToast.error("Please Select Color",{position:'bottom-center'});
-    //        }
-    //        else if(isSize==="YES" && size.length===0){
-    //            cogoToast.error("Please Select Size",{position:'bottom-center'});
-    //        }
-    //        else if(quantity.length===0){
-    //            cogoToast.error("Please Select Quantity",{position:'bottom-center'});
-    //        }
-    //        else {
-    //            this.setState({addToCart:"Adding.."})
-    //            let MyFormData=new FormData();
-    //            MyFormData.append("color",color);
-    //            MyFormData.append("size",size);
-    //            MyFormData.append("quantity",quantity);
-    //            MyFormData.append("mobileNo",Mobile);
-    //            MyFormData.append("product_code",productCode);
-    //            axios.post(ApiURL.addToCart,MyFormData).then((res)=>{
-    //                if(res.data===1){
-    //                    cogoToast.success("Item Added",{position:'bottom-center'});
-    //                    this.setState({PageRefreshStatus:true})
-    //                    this.setState({addToCart:"Add To Cart"})
-    //                }
-    //                else {
-    //                    cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'});
-    //                    this.setState({addToCart:"Add To Cart"})
-    //                }
-    //            }).catch((err)=>{
-    //                cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
-    //                this.setState({addToCart:"Add To Cart"})
-    //            })
-    //        }
-    //    }
-    //    else {
-    //        let winlocation=window.location.pathname;
-    //        LocalStorageHelper.SetRedirectFromDetails(winlocation);
-    //        this.setState({RedirectToLogin:true})
-    //    }
-    // }
+    addToCart=()=>{
+       if(LocalStorageHelper.getUserMobile()!==null){
+           let isSize= this.state.isSize;
+           let isColor= this.state.isColor;
+           let productCode=this.state.productCode;
+           let color=this.state.color;
+           let size=this.state.size;
+           let quantity=this.state.quantity;
+           let Mobile=LocalStorageHelper.getUserMobile();
+
+           if(isColor==="YES" && color.length===0){
+               cogoToast.error("Please Select Color",{position:'bottom-center'});
+           }
+           else if(isSize==="YES" && size.length===0){
+               cogoToast.error("Please Select Size",{position:'bottom-center'});
+           }
+           else if(quantity.length===0){
+               cogoToast.error("Please Select Quantity",{position:'bottom-center'});
+           }
+           else {
+               this.setState({addToCart:"Adding.."})
+               let MyFormData=new FormData();
+               MyFormData.append("color",color);
+               MyFormData.append("size",size);
+               MyFormData.append("quantity",quantity);
+               MyFormData.append("mobileNo",Mobile);
+               MyFormData.append("product_code",productCode);
+               axios.post(ApiURL.addToCart,MyFormData).then((res)=>{
+                   if(res.data===1){
+                       cogoToast.success("Item Added",{position:'bottom-center'});
+                       this.setState({PageRefreshStatus:true})
+                       this.setState({addToCart:"Add To Cart"})
+                   }
+                   else {
+                       cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'});
+                       this.setState({addToCart:"Add To Cart"})
+                   }
+               }).catch((err)=>{
+                   cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
+                   this.setState({addToCart:"Add To Cart"})
+               })
+           }
+       }
+       else {
+           let winlocation=window.location.pathname;
+           LocalStorageHelper.SetRedirectFromDetails(winlocation);
+           this.setState({RedirectToLogin:true})
+       }
+    }
 
     // orderNow=()=>{
     //  if(LocalStorageHelper.getUserMobile()!==null){

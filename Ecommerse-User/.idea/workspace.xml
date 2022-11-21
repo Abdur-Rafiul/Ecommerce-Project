@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d180353b-a939-4db4-a052-7ab76411a1dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/routes/api.php" afterDir="false" />
-    </list>
+    <list default="true" id="d180353b-a939-4db4-a052-7ab76411a1dc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +84,7 @@
       <workItem from="1668498964649" duration="9896000" />
       <workItem from="1668682802509" duration="9656000" />
       <workItem from="1668760152517" duration="6962000" />
+      <workItem from="1668957485568" duration="3710000" />
     </task>
     <servers />
   </component>
