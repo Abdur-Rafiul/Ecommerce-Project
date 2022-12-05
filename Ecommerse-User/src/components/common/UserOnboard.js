@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
-
+import {Link, Redirect} from "react-router-dom";
 class UserOnboard extends Component {
     render() {
         return (
@@ -15,10 +15,15 @@ class UserOnboard extends Component {
                                          <h6 className="section-sub-title pb-3"></h6>
                                          <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                                             <Form.Control type="text" placeholder="Enter Your Phone Number" />
+                                    
+                                             <Form.Control className='mb-2' type="text" placeholder="Enter Your Email" />
+                                             <Form.Control type="text" placeholder="Enter Your Password" />
+                                             
                                          </Form.Group>
                                          <Form.Group>
-                                         <Button className="btn-block pure-material-button-contained site-btn">Next</Button>
+                                         <Button className="btn-block pure-material-button-contained site-btn m-2">Sign IN</Button>
+                                         <Link to="/register"  className="h4 btn">Register</Link>
+
                                          </Form.Group>
                                      </Form>
                                  </Col>

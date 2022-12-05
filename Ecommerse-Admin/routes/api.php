@@ -9,8 +9,19 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', [AuthController::class, 'user']);
+    Route::delete('logout', [AuthController::class, 'logout']);
+
+});
+
 
 Route::get('/GetVisitorDetails',[VisitorController::class, 'GetVisitorDetails']);
 Route::post('/SendContactDetails',[ContactController::class, 'SendContactDetails']);

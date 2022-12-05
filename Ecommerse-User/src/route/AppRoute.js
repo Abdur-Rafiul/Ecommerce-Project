@@ -14,6 +14,7 @@ import CartPage from "../pages/CartPage";
 import ProductListByCategory from "../pages/ProductListByCategory";
 import ProductListBySubCategory from "../pages/ProductListBySubCategory";
 import SearchPage from "../pages/SearchPage";
+import RegisterPage from '../pages/RegisterPage';
 
 
 class AppRoute extends Component {
@@ -23,6 +24,7 @@ class AppRoute extends Component {
                 <Switch>
                     <Route exact path="/" render={props => <HomePage{...props} key={Date.now()}/>}/>
                     <Route exact path="/onboard" render={props => <UserOnboardPage{...props} key={Date.now()}/>} />
+                    <Route exact path="/register" render={props => <RegisterPage{...props} key={Date.now()}/>} />
                     <Route exact path="/contact" render={props => <ContactPage{...props} key={Date.now()}/>} />
                     <Route exact path="/policy" render={props => <PolicyPage{...props} key={Date.now()}/>} />
                     <Route exact path="/refund" render={props => <RefundPage{...props} key={Date.now()}/>} />
