@@ -9,6 +9,7 @@ import ReactHtmlParser, {
   convertNodeToElement,
   htmlparser2,
 } from "react-html-parser";
+import SessionHelper from "../../SessionHelper/SessionHelper";
 
 
 class About extends Component {
@@ -22,7 +23,8 @@ class About extends Component {
   }
 
   componentDidMount() {
-    if (sessionStorage.getItem("SiteInfoAbout") == null) {
+    let SiteInfoAbout = SessionHelper.getAboutSession();
+    if (SiteInfoAbout == null) {
       axios
         .get(ApiURL.SendSiteInfo)
         .then((response) => {
@@ -30,15 +32,15 @@ class About extends Component {
           if (StatusCode == 200) {
             let JSONDATA = response.data[0]["about"];
             this.setState({ about: JSONDATA,loaderDiv:"d-none", mainDiv:" " });
-            sessionStorage.setItem("SiteInfoAbout", JSONDATA);
+            SessionHelper.setAboutSession(JSONDATA)
           }else{
           
            toast.error("Something Went Wrong! Refress The Page")
         }
         })
-        .catch((error) => {});
+        .catch((error) => {}); 
     } else {
-      this.setState({ about: sessionStorage.getItem("SiteInfoAbout"),loaderDiv:"d-none", mainDiv:" "   });
+      this.setState({ about: SiteInfoAbout,loaderDiv:"d-none", mainDiv:" "   });
 
     }
   }
