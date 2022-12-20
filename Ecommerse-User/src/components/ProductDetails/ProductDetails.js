@@ -7,10 +7,11 @@ import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import ReviewList from "./ReviewList";
 import {Link} from "react-router-dom";
 // import LocalStorageHelper from "../../LocalStorageHelper/LocalStorageHelper";
-// import cogoToast from "cogo-toast";
+ import cogoToast from "cogo-toast";
 import axios from "axios";
-//import ApiURL from "../../api/AppURL";
-import {Redirect} from "react-router";
+import ApiURL from "../../api/AppURL";
+import {Redirect} from "react-router-dom";
+import SessionHelper from '../../SessionHelper/SessionHelper';
 class ProductDetails extends Component {
     constructor() {
         super();
@@ -54,14 +55,14 @@ class ProductDetails extends Component {
 
 
     addToCart=()=>{
-       if(LocalStorageHelper.getUserMobile()!==null){
+       if(SessionHelper.getUserEmail()!==null){
            let isSize= this.state.isSize;
            let isColor= this.state.isColor;
            let productCode=this.state.productCode;
            let color=this.state.color;
            let size=this.state.size;
            let quantity=this.state.quantity;
-           let Mobile=LocalStorageHelper.getUserMobile();
+           let Email=SessionHelper.getUserEmail();
 
            if(isColor==="YES" && color.length===0){
                cogoToast.error("Please Select Color",{position:'bottom-center'});
@@ -78,7 +79,7 @@ class ProductDetails extends Component {
                MyFormData.append("color",color);
                MyFormData.append("size",size);
                MyFormData.append("quantity",quantity);
-               MyFormData.append("mobileNo",Mobile);
+               MyFormData.append("email",Email);
                MyFormData.append("product_code",productCode);
                axios.post(ApiURL.addToCart,MyFormData).then((res)=>{
                    if(res.data===1){
@@ -98,7 +99,7 @@ class ProductDetails extends Component {
        }
        else {
            let winlocation=window.location.pathname;
-           LocalStorageHelper.SetRedirectFromDetails(winlocation);
+        //    LocalStorageHelper.SetRedirectFromDetails(winlocation);
            this.setState({RedirectToLogin:true})
        }
     }
@@ -200,14 +201,14 @@ class ProductDetails extends Component {
     }
 
 
-    // PageRefresh=()=>{
-    //     if(this.state.PageRefreshStatus===true){
-    //         let URL=window.location;
-    //         return(
-    //                <Redirect to={URL}/>
-    //          )
-    //     }
-    // }
+    PageRefresh=()=>{
+        if(this.state.PageRefreshStatus===true){
+            let URL=window.location;
+            return(
+                   <Redirect to={"/"+URL}/>
+             )
+        }
+    }
     //
     // PageRedirect=()=>{
     //     if(this.state.PageRedirectStatus===true){
@@ -217,11 +218,11 @@ class ProductDetails extends Component {
     //     }
     // }
 
-    // PageRedirectToLogin=()=>{
-    //     if(this.state.RedirectToLogin===true){
-    //         return <Redirect to="/onboard"/>
-    //     }
-    // }
+    PageRedirectToLogin=()=>{
+        if(this.state.RedirectToLogin===true){
+            return <Redirect to="/onboard"/>
+        }
+    }
 
 
 
@@ -395,9 +396,9 @@ class ProductDetails extends Component {
                     </Row>
                 </Container>
                 <SuggestedProducts subcategory={subcategory}/>
-                {/*{this.PageRefresh()}*/}
+                {this.PageRefresh()}
                 {/*{this.PageRedirect()}*/}
-                {/*{this.PageRedirectToLogin()}*/}
+                {this.PageRedirectToLogin()}
             </Fragment>
         );
     }

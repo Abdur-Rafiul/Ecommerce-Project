@@ -36,7 +36,11 @@ class ApiURL{
   static ReviewList(code){
     return this.BaseUrl+"reviewList/"+code;
   }
+  static CartCount(email){
+    return this.BaseUrl+"CartCount/"+email;
+  }
 
+  static addToCart=this.BaseUrl+"addToCart"
 
 }
 

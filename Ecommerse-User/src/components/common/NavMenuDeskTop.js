@@ -16,34 +16,37 @@ class NavMenuDeskTop extends Component {
             SearchRedirectStatus: false,
             userName: "Login",
             RedirectHome: false,
+            userLoading: "",
+            userLogin: "d-none",
+            CartCount:0,
         }
         this.SearchChange = this.SearchChange.bind(this)
         this.SearchOnClick = this.SearchOnClick.bind(this)
         this.SearchRedirect = this.SearchRedirect.bind(this)
     }
-    signOut=()=>{
-        
+    signOut = () => {
+
         const token = SessionHelper.getUser()
         axios.delete(ApiURL.BaseUrl + "logout", { headers: { "Authorization": `Bearer ${token}` } })
-        .then((response) => {
+            .then((response) => {
 
-            if (response.status === 200) {
+                if (response.status === 200) {
 
-                //let userName = response.data.data.user.name;
-                //console.log(response.data.data.user.name)
+                    //let userName = response.data.data.user.name;
+                    //console.log(response.data.data.user.name)
 
-               // SessionHelper.setUserName(userName)
-               cogoToast.success(response.data.data.message,{position:'bottom-center'});
+                    // SessionHelper.setUserName(userName)
+                    cogoToast.success(response.data.data.message, { position: 'bottom-center' });
 
-                
-            }
-        })
-        .catch((errors) => {
 
-            console.log(errors)
-        });
+                }
+            })
+            .catch((errors) => {
+
+                console.log(errors)
+            });
         SessionHelper.removeUser();
-        this.setState({RedirectHome:true});
+        this.setState({ RedirectHome: true });
     }
 
     SearchChange(event) {
@@ -72,6 +75,16 @@ class NavMenuDeskTop extends Component {
         }
     }
     componentDidMount() {
+    if(SessionHelper.getUserEmail()){
+    
+        axios.get(ApiURL.CartCount(SessionHelper.getUserEmail())).then((res)=>{
+              this.setState({CartCount:res.data})
+             // alert(res.data)
+        }).catch((error)=>{
+        
+        
+        })
+    }
         let user = SessionHelper.getUserName();
         if (SessionHelper.getUser()) {
 
@@ -84,10 +97,13 @@ class NavMenuDeskTop extends Component {
                     if (response.status === 200) {
 
                         let userName = response.data.data.user.name;
+                        let userEmail = response.data.data.user.email;
                         //console.log(response.data.data.user.name)
 
                         SessionHelper.setUserName(userName)
-                        
+                        SessionHelper.setUserEmail(userEmail)
+                        this.setState({ userLoading: "d-none" })
+                        this.setState({ userLogin: "" })
                     }
                 })
                 .catch((errors) => {
@@ -111,7 +127,7 @@ class NavMenuDeskTop extends Component {
                     <Row>
                         <Col lg={4} md={4} sm={12} xs={12}>
                             <Link to="/"><img className="nav-logo" src="/images/logo.jpg" /></Link>
-                            <Link to="/cart" className="cart-btn"><i className="fa fa-shopping-cart"></i>4 items</Link>
+                            <Link to="/cart" className="cart-btn"><i className="fa fa-shopping-cart"></i>{this.state.CartCount} items</Link>
                         </Col>
 
                         <Col lg={4} md={4} sm={12} xs={12}>
@@ -124,8 +140,7 @@ class NavMenuDeskTop extends Component {
                         <Col lg={4} md={4} sm={12} xs={12}>
                             <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
                             <Link to="/notification" className="btn"><i className="fa h4 fa-bell"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
-                            <a href="" className="btn"><i className="fa-3x text-success fa  fa-mobile-alt"></i></a>
-                            <Link to="/onboard" className="h4 btn">Login</Link>
+                            <Link to="/onboard" className="h4 btn btn-danger">Login</Link>
 
                         </Col>
                     </Row>
@@ -147,7 +162,7 @@ class NavMenuDeskTop extends Component {
                     <Row>
                         <Col lg={4} md={4} sm={12} xs={12}>
                             <Link to="/"><img className="nav-logo" src="/images/logo.jpg" /></Link>
-                            <Link to="/cart" className="cart-btn"><i className="fa fa-shopping-cart"></i>4 items</Link>
+                            <Link to="/cart" className="cart-btn"><i className="fa fa-shopping-cart"></i>{this.state.CartCount} items</Link>
                         </Col>
 
                         <Col lg={4} md={4} sm={12} xs={12}>
@@ -160,20 +175,25 @@ class NavMenuDeskTop extends Component {
                         <Col lg={4} md={4} sm={12} xs={12}>
                             <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
                             <Link to="/notification" className="btn"><i className="fa h4 fa-bell"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
+                            <span className={this.state.userLoading}>
+                                <button class="btn btn-danger" type="button" >
+                                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </button>
+                            </span>
+                            <span className={this.state.userLogin}>
+                                <Dropdown className="d-inline mx-2" autoClose="outside">
+                                    <Dropdown.Toggle id="dropdown-autoclose-outside" className='btn btn-danger me-5'>
+                                        {SessionHelper.getUserName()}
+                                    </Dropdown.Toggle>
 
-                            <button  className="btn btn-light "></button>
-
-                            <Dropdown className="d-inline mx-2" autoClose="outside">
-                                <Dropdown.Toggle id="dropdown-autoclose-outside">
-                                    {SessionHelper.getUserName()}
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    <Dropdown.Item >Order List</Dropdown.Item>
-                                    <Dropdown.Item href="#">Favorite List</Dropdown.Item>
-                                    <Dropdown.Item onClick={this.signOut}>SIGN OUT</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item >Order List</Dropdown.Item>
+                                        <Dropdown.Item href="#">Favorite List</Dropdown.Item>
+                                        <Dropdown.Item onClick={this.signOut}>SIGN OUT</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </span>
 
                         </Col>
                     </Row>

@@ -31,9 +31,18 @@ class SessionHelper{
     
         return sessionStorage.getItem("name")
     }
+    static setUserEmail(Email){
+    
+        sessionStorage.setItem("email", Email);
+    }
+
+    static getUserEmail(){
+    
+        return sessionStorage.getItem("email")
+    }
 
     static removeUser(){
-        return  sessionStorage.removeItem("name") + sessionStorage.removeItem("user")
+        return  sessionStorage.removeItem("name") + sessionStorage.removeItem("user") + sessionStorage.removeItem('email')
     }
 
 

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_cart', function (Blueprint $table){
+        Schema::create('product_cart1', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('img',1000);
             $table->string('product_name',1000);
@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('product_quantity',1000);
             $table->string('unit_price',1000);
             $table->string('total_price',1000);
-            $table->string('mobile',1000);
+            $table->string('email',1000);
 
-            });
+        });
     }
 
     /**

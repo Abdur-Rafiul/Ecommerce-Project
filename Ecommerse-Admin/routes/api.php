@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\SiteinfoController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\CategoryDetailsController;
@@ -40,4 +41,6 @@ Route::get('/ProductBySearch/{key}',[ProductListController::class, 'ProductBySea
 Route::get('/SimilarProduct/{subcategory}',[ProductListController::class, 'SimilarProduct']);
 Route::post('/postReview',[ReviewController::class, 'postReview']);
 Route::get('/reviewList/{code}',[ReviewController::class, 'reviewList']);
+Route::post('/addToCart',[ProductOrderController::class, 'AddToCart']);
+Route::get('/CartCount/{email}',[ProductOrderController::class, 'CartCount']);
 
