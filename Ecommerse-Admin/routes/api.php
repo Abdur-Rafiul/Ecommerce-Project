@@ -10,6 +10,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\FavListController;
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,18 @@ Route::get('/ProductBySearch/{key}',[ProductListController::class, 'ProductBySea
 Route::get('/SimilarProduct/{subcategory}',[ProductListController::class, 'SimilarProduct']);
 Route::post('/postReview',[ReviewController::class, 'postReview']);
 Route::get('/reviewList/{code}',[ReviewController::class, 'reviewList']);
+
+
 Route::post('/addToCart',[ProductOrderController::class, 'AddToCart']);
 Route::get('/CartCount/{email}',[ProductOrderController::class, 'CartCount']);
+Route::get('/CartList/{email}',[ProductOrderController::class, 'CartList']);
+Route::get('/RemoveCartList/{id}',[ProductOrderController::class, 'RemoveCartList']);
+
+Route::get('/CartItemPlus/{id}/{quantity}/{price}',[ProductOrderController::class, 'CartItemPlus']);
+Route::get('/CartItemMinus/{id}/{quantity}/{price}',[ProductOrderController::class, 'CartItemMinus']);
+
+
+Route::get('/addFav/{code}/{email}',[FavListController::class, 'addFav']);
+Route::get('/favList/{email}',[FavListController::class, 'favList']);
+Route::get('/removeFavItem/{code}/{email}',[FavListController::class, 'removeFavItem']);
 

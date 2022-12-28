@@ -152,33 +152,33 @@ class ProductDetails extends Component {
     //     }
     // }
 
-    // addToFav=()=>{
-    //     if(LocalStorageHelper.getUserMobile()!==null){
-    //         this.setState({addToFav:"Adding..."})
-    //         let productCode=this.state.productCode;
-    //         let Mobile=LocalStorageHelper.getUserMobile();
-    //         axios.get(ApiURL.AddFav(Mobile,productCode)).then((res)=>{
-    //             if(res.data===1){
-    //                 cogoToast.success("Item Added",{position:'bottom-center'});
-    //                 this.setState({addToFav:"Favourite"})
-    //             }
-    //             else {
-    //                 cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
-    //                 this.setState({addToFav:"Favourite"})
-    //             }
-    //
-    //         }).catch((err)=> {
-    //             cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
-    //             this.setState({addToFav:"Favourite"})
-    //         })
-    //     }
-    //     else {
-    //         let winlocation=window.location.pathname;
-    //         LocalStorageHelper.SetRedirectFromDetails(winlocation);
-    //         this.setState({RedirectToLogin:true})
-    //     }
-    //
-    // }
+    addToFav=()=>{
+        if(SessionHelper.getUserEmail()!==null){
+            this.setState({addToFav:"Adding..."})
+            let productCode=this.state.productCode;
+            let Email=SessionHelper.getUserEmail();
+            axios.get(ApiURL.AddFav(Email,productCode)).then((res)=>{
+                if(res.data===1){
+                    cogoToast.success("Item Added",{position:'bottom-center'});
+                    this.setState({addToFav:"Favourite"})
+                }
+                else {
+                    cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
+                    this.setState({addToFav:"Favourite"})
+                }
+    
+            }).catch((err)=> {
+                cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
+                this.setState({addToFav:"Favourite"})
+            })
+        }
+        else {
+            let winlocation=window.location.pathname;
+           // LocalStorageHelper.SetRedirectFromDetails(winlocation);
+            this.setState({RedirectToLogin:true})
+        }
+    
+    }
 
 
 
@@ -205,7 +205,7 @@ class ProductDetails extends Component {
         if(this.state.PageRefreshStatus===true){
             let URL=window.location;
             return(
-                   <Redirect to={"/"+URL}/>
+                   <Redirect to={URL}/>
              )
         }
     }

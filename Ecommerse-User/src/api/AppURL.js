@@ -40,7 +40,33 @@ class ApiURL{
     return this.BaseUrl+"CartCount/"+email;
   }
 
+  static AddFav(email,code){
+    return this.BaseUrl+"addFav/"+code+"/"+email;
+  }
+  static favList(email){
+    return this.BaseUrl+"favList/"+email;
+  }
+  static removeFavItem(email,code){
+    return this.BaseUrl+"removeFavItem/"+code+"/"+email;
+  }
+
   static addToCart=this.BaseUrl+"addToCart"
+
+  static CartList(email){
+    return this.BaseUrl+"CartList/"+email;
+  }
+  static RemoveCartList(id){
+    return this.BaseUrl+"RemoveCartList/"+id;
+  }
+
+  static CartItemPlus(id,quantity,price){
+    return this.BaseUrl+"CartItemPlus/"+id+"/"+quantity+"/"+price;
+  }
+
+  static CartItemMinus(id,quantity,price){
+    return this.BaseUrl+"CartItemMinus/"+id+"/"+quantity+"/"+price;
+  }
+
 
 }
 
