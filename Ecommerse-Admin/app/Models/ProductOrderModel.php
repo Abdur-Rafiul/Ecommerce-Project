@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductOrderModel extends Model
 {
-    public $table='product_order';
+    public $table='directOrderModel';
     public $primaryKey='id';
     public $incrementing=true;
     public $keyType='int';

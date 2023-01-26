@@ -85,6 +85,7 @@ class CartList extends Component {
     PageRefresh=()=>{
         if(this.state.PageRefreshStatus===true){
             let URL=window.location;
+            alert(URL)
             return(
                 <Redirect to={URL}/>
             )
@@ -144,7 +145,7 @@ class CartList extends Component {
             MyFormData.append('paymentMethod',payment)
             MyFormData.append('yourName',name)
             MyFormData.append('deliveryAddress',address)
-            MyFormData.append('mobileNumber',SessionHelper.getUserEmail())
+            MyFormData.append('email',SessionHelper.getUserEmail())
             MyFormData.append('invoice_no',invoice)
             MyFormData.append('ShippingPrice',"0000");
 

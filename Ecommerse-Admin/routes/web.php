@@ -201,3 +201,4 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel'])->middlewa
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn'])->middleware('loginCheck');
 //SSLCOMMERZ END
 
+

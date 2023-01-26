@@ -67,6 +67,8 @@ class ApiURL{
     return this.BaseUrl+"CartItemMinus/"+id+"/"+quantity+"/"+price;
   }
 
+  
+  static CartOrder = this.BaseUrl+"CartOrder"
 
 }
 

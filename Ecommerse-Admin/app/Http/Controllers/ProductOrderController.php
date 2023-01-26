@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\directOrderModel;
 use App\Models\ProductOrderModel;
 use App\Models\CartModel;
 use App\Models\ProductListModel;
@@ -11,6 +12,41 @@ use Illuminate\Support\Facades\DB;
 class ProductOrderController extends Controller
 {
 
+    function CartOrder(Request $request){
+        $city = $request->input('city');
+        $paymentMethod = $request->input('paymentMethod');
+        $address = $request->input('deliveryAddress');
+        $yourName = $request->input('yourName');
+        $email = $request->input('email');
+        $invoice_no = $request->input('invoice_no');
+        $ShippingPrice = $request->input('ShippingPrice');
+        date_default_timezone_set('Asia/Dhaka');
+        $request_time = date("h:i:sa");
+        $request_date = date("d-m-y");
+        $CartList = CartModel::where('email',$email)->get();
+        $cartInsertDeleteResult="";
+        foreach ($CartList as $CartListItem){
+            $resultInsert = DirectOrderModel::insert([
+                'invoice'=>"c".$invoice_no,
+                'product_name'=>$CartListItem['product_name'],
+                'product_code'=>$CartListItem['product_code'],
+                'shop_name'=>'m',
+                'shop_code'=>'c',
+                'product_info'=>$CartListItem['product_info'],
+                'product_quantity'=>$CartListItem['product_quantity'],
+                'unit_price'=>$CartListItem['unit_price'],
+                'total_price'=>$CartListItem['total_price'],
+                'email'=>$email,
+                'payment_method'=>$paymentMethod,
+                'delivery_address'=>$address,
+                'city'=>$city,
+                'delivery_charge'=>'1',
+                'order_date'=>$request_date,
+                'order_time'=>$request_time,
+                'order_status'=>'pending',
+            ]);
+        }
+    }
     function AddToCart(Request $request){
 
         $color=$request->input('color');
