@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('text_color');
             $table->string('bg_color');
-            $table->string('images');
+            $table->string('image');
             $table->string('title');
             $table->string('sub_title');
             $table->string('product_Code');

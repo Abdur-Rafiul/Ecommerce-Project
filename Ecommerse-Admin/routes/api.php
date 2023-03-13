@@ -52,6 +52,7 @@ Route::get('/RemoveCartList/{id}',[ProductOrderController::class, 'RemoveCartLis
 Route::get('/CartItemPlus/{id}/{quantity}/{price}',[ProductOrderController::class, 'CartItemPlus']);
 Route::get('/CartItemMinus/{id}/{quantity}/{price}',[ProductOrderController::class, 'CartItemMinus']);
 Route::post('/CartOrder',[ProductOrderController::class, 'CartOrder']);
+Route::get('/OrderListByUser/{email}',[ProductOrderController::class, 'OrderListByUser']);
 
 
 Route::get('/addFav/{code}/{email}',[FavListController::class, 'addFav']);

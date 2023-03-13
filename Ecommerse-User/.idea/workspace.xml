@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d180353b-a939-4db4-a052-7ab76411a1dc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductDetailsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SiteinfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SiteinfoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SliderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/database/migrations/2022_10_26_091745_slider_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/database/migrations/2022_10_26_091745_slider_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Product/Slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Product/Slider.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/Personal_Portfolio_Raw_PHP/portfolio",
+    "last_opened_file_path": "D:/Laravel Project/laravel-pharmacy-website/samira_pharmacy_website",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -94,6 +100,7 @@
       <workItem from="1668957485568" duration="4301000" />
       <workItem from="1669309737876" duration="30000" />
       <workItem from="1674063308223" duration="759000" />
+      <workItem from="1675157114622" duration="8453000" />
     </task>
     <servers />
   </component>

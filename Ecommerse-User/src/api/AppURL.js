@@ -21,6 +21,8 @@ class ApiURL{
   static SendSliderInfo=this.BaseUrl+"SendSliderInfo";
 
   static ProductDetails(ProductCode){
+    //alert(ProductCode)
+
     return this.BaseUrl+"ProductDetails/"+ProductCode;
   }
 
@@ -69,6 +71,10 @@ class ApiURL{
 
   
   static CartOrder = this.BaseUrl+"CartOrder"
+
+  static OrderListByUser(email){
+    return this.BaseUrl+"OrderListByUser/"+email;
+  }
 
 }
 

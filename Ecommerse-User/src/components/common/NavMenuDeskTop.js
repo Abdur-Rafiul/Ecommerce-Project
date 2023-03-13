@@ -188,8 +188,8 @@ class NavMenuDeskTop extends Component {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item >Order List</Dropdown.Item>
-                                        <Dropdown.Item href="#">Favorite List</Dropdown.Item>
+                                        <Link className="btn"  to="/order">Order List</Link><br/>
+                                        <Link className="btn" to="/favourite">Favorite List</Link>
                                         <Dropdown.Item onClick={this.signOut}>SIGN OUT</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>

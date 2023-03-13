@@ -31,7 +31,7 @@ class SliderHome extends Component {
                         <Link to={"ProductDetails/"+SliderList.product_Code} className="btn site-btn px-5">More Info</Link>
                     </div>
                         <div className="col-md-6 text-center">
-                            <img className="sliderImg w-100 h-100 p-5" src= {SliderList.images} alt=""/>
+                            <img className="sliderImg w-100 h-100 p-5" src= {SliderList.image} alt=""/>
                         </div>
                     X
                 </div>
