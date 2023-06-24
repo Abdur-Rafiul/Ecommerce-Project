@@ -152,12 +152,12 @@ class OrderList extends Component {
                 <Container className={this.state.MainDiv+" TopSection"}>
                     <Row  className="d-flex justify-content-center">
                         <Col  md={10} lg={10}  sm={12} xs={12}>
-                            <Breadcrumb className="shadow-sm mt-2 bg-white">
+                            <Breadcrumb className="shadow-sm mt-5 bg-white">
                                 <Breadcrumb.Item><Link to="/">Home</Link></Breadcrumb.Item>
                                 <Breadcrumb.Item><Link to="/orderlist">Order History</Link></Breadcrumb.Item>
                             </Breadcrumb>
                             <Container className="mt-1">
-                                <Row className="shadow-sm animated slideInDown bg-white p-4">
+                                <Row className="shadow-sm animated slideInDown bg-white p-4 mt-5">
                                     {MyView}
                                 </Row>
                             </Container>

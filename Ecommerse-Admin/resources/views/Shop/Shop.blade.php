@@ -138,7 +138,7 @@
                             "<td>"+item['shop_name']+"</td>" +
                             "<td>"+item['shop_address']+"</td>" +
                             "<td>"+item['shop_owner']+"</td>" +
-                            "<td>"+item['shop_category']+"</td>" +
+                            "<td>"+item['shop_owner']+"</td>" +
                             "<td>"+item['shop_username']+"</td>" +
                             "<td>"+item['shop_mobile']+"</td>" +
                             "<td>"+item['shop_email']+"</td>" +

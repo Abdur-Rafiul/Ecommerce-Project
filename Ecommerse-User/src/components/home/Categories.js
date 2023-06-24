@@ -35,8 +35,8 @@ class Categories extends Component {
         let MyView = ParentList.map((ParentList,i)=>{
             return <Col  key={i.toString()} className="p-0" xl={2} lg={2} md={3} sm={6} xs={6}>
                <Link to={"ProductListByCategory/"+ParentList.ParentCategoryName}>
-                <Card className="w-100 card">
-                    <img className="categories" src={'http://'+ParentList.ParentCategoryImg} />
+                <Card className="w-100">
+                    <img className="categories" src={ParentList.ParentCategoryImg} />
                     <Card.Body>
                         <p className="category-name">{ParentList.ParentCategoryName}</p>
 

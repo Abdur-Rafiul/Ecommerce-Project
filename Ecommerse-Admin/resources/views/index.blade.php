@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 p-1 col-sm-6 col-6 col-lg-3">
+            {{-- <div class="col-md-3 p-1 col-sm-6 col-6 col-lg-3">
                 <div class="info-box">
                     <span class="info-box-icon bg-light"><i class="fa fa-user-circle"></i></span>
                     <div class="info-box-content">
@@ -72,7 +72,7 @@
                         <span id="SummaryTotalCustomOrder" class="info-box-number">10<small>%</small></span>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>

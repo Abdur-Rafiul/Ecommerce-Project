@@ -32,8 +32,8 @@
                         <div class="col-6 d-flex flex-row">
                             <p>
                                 <strong>Invoiced Form:</strong>  <br>
-                                Uttoron e Bazar <br>
-                                Tahaz Rezia Monjil, 2nd Floor, Kalabagan, Rajshahi
+                                Fahima Complex,Savar <br>
+                                Daffodil International University Ashuliya Savar
                             </p>
                         </div>
                         <div class="col-6 d-flex flex-row-reverse">

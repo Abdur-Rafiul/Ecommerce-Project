@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('notification', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('title');
+            $table->string('subject');
             $table->text('msg');
-            $table->string('date');
+            $table->string('notifications_date');
+            $table->string('notification_time');
 
 
             });

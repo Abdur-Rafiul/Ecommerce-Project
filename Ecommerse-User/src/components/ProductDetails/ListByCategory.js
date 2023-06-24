@@ -13,7 +13,7 @@ class ListByCategory extends Component {
                 return  <Col className="p-1" xl={2} lg={2} md={2} sm={4} xs={6}>
                     <Link to={"/ProductDetails/"+ProductList.product_code}>
                     <Card className="image-box card w-100">
-                        <img className="" src={ProductList.images} alt="shoes"/>
+                        <img className="" src={ProductList.image} alt="shoes"/>
                         <Card.Body>
                             <p className="product-name-on-card">{ProductList.title}</p>
                             <p className="product-price-on-card">Price: {ProductList.price}</p>
@@ -26,7 +26,7 @@ class ListByCategory extends Component {
                 return  <Col className="p-1" xl={2} lg={2} md={2} sm={4} xs={6}>
                     <Link to={"/ProductDetails/"+ProductList.product_code}>
                     <Card className="image-box card w-100">
-                        <img className="" src={ProductList.images} alt="shoes"/>
+                        <img className="" src={ProductList.image} alt="shoes"/>
                         <Card.Body>
                             <p className="product-name-on-card">{ProductList.title}</p>
                             <p className="product-price-on-card"><strike><span className="text-muted">Price: {ProductList.price}</span></strike> {ProductList.special_price}</p>

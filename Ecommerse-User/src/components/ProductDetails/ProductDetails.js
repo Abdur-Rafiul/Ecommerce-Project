@@ -32,6 +32,8 @@ class ProductDetails extends Component {
         }
     }
 
+    componentDidMount(){
+    }
     imgOnclick=(event)=>{
         let imgSrc= event.target.getAttribute('src');
         this.setState({previewImg:imgSrc})
@@ -99,58 +101,58 @@ class ProductDetails extends Component {
        }
        else {
            let winlocation=window.location.pathname;
-        //    LocalStorageHelper.SetRedirectFromDetails(winlocation);
+           SessionHelper.SetRedirectFromDetails(winlocation);
            this.setState({RedirectToLogin:true})
        }
     }
 
-    // orderNow=()=>{
-    //  if(LocalStorageHelper.getUserMobile()!==null){
-    //      let isSize= this.state.isSize;
-    //      let isColor= this.state.isColor;
-    //      let productCode=this.state.productCode;
-    //      let color=this.state.color;
-    //      let size=this.state.size;
-    //      let quantity=this.state.quantity;
-    //      let Mobile=LocalStorageHelper.getUserMobile();
-    //      if(isColor==="YES" && color.length===0){
-    //          cogoToast.error("Please Select Color",{position:'bottom-center'});
-    //      }
-    //      else if(isSize==="YES" && size.length===0){
-    //          cogoToast.error("Please Select Size",{position:'bottom-center'});
-    //      }
-    //      else if(quantity.length===0){
-    //          cogoToast.error("Please Select Quantity",{position:'bottom-center'});
-    //      }
-    //      else {
-    //          this.setState({orderNow:"Processing.."})
-    //          let MyFormData=new FormData();
-    //          MyFormData.append("color",color);
-    //          MyFormData.append("size",size);
-    //          MyFormData.append("quantity",quantity);
-    //          MyFormData.append("mobileNo",Mobile);
-    //          MyFormData.append("product_code",productCode);
-    //          axios.post(ApiURL.addToCart,MyFormData).then((res)=>{
-    //              if(res.data===1){
-    //                  this.setState({orderNow:"Order Now"})
-    //                  this.setState({PageRedirectStatus:true})
-    //              }
-    //              else {
-    //                  this.setState({orderNow:"Order Now"})
-    //                  cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'});
-    //              }
-    //          }).catch((err)=>{
-    //              this.setState({orderNow:"Order Now"})
-    //              cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
-    //          })
-    //      }
-    //  }
-    // else {
-    //      let winlocation=window.location.pathname;
-    //      LocalStorageHelper.SetRedirectFromDetails(winlocation);
-    //         this.setState({RedirectToLogin:true})
-    //     }
-    // }
+    orderNow=()=>{
+     if(SessionHelper.getUserEmail()!==null){
+         let isSize= this.state.isSize;
+         let isColor= this.state.isColor;
+         let productCode=this.state.productCode;
+         let color=this.state.color;
+         let size=this.state.size;
+         let quantity=this.state.quantity;
+         let Email=SessionHelper.getUserEmail();
+         if(isColor==="YES" && color.length===0){
+             cogoToast.error("Please Select Color",{position:'bottom-center'});
+         }
+         else if(isSize==="YES" && size.length===0){
+             cogoToast.error("Please Select Size",{position:'bottom-center'});
+         }
+         else if(quantity.length===0){
+             cogoToast.error("Please Select Quantity",{position:'bottom-center'});
+         }
+         else {
+             this.setState({orderNow:"Processing.."})
+             let MyFormData=new FormData();
+             MyFormData.append("color",color);
+             MyFormData.append("size",size);
+             MyFormData.append("quantity",quantity);
+             MyFormData.append("email",Email);
+             MyFormData.append("product_code",productCode);
+             axios.post(ApiURL.addToCart,MyFormData).then((res)=>{
+                 if(res.data===1){
+                     this.setState({orderNow:"Order Now"})
+                     this.setState({PageRedirectStatus:true})
+                 }
+                 else {
+                     this.setState({orderNow:"Order Now"})
+                     cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'});
+                 }
+             }).catch((err)=>{
+                 this.setState({orderNow:"Order Now"})
+                 cogoToast.error("Request Fail ! Try Again",{position:'bottom-center'})
+             })
+         }
+     }
+    else {
+         let winlocation=window.location.pathname;
+            SessionHelper.SetRedirectFromDetails(winlocation);
+            this.setState({RedirectToLogin:true})
+        }
+    }
 
     addToFav=()=>{
         if(SessionHelper.getUserEmail()!==null){
@@ -174,7 +176,7 @@ class ProductDetails extends Component {
         }
         else {
             let winlocation=window.location.pathname;
-           // LocalStorageHelper.SetRedirectFromDetails(winlocation);
+            SessionHelper.SetRedirectFromDetails(winlocation);
             this.setState({RedirectToLogin:true})
         }
     
@@ -209,14 +211,14 @@ class ProductDetails extends Component {
              )
         }
     }
-    //
-    // PageRedirect=()=>{
-    //     if(this.state.PageRedirectStatus===true){
-    //         return(
-    //             <Redirect to="/cart"/>
-    //         )
-    //     }
-    // }
+    
+    PageRedirect=()=>{
+        if(this.state.PageRedirectStatus===true){
+            return(
+                <Redirect to="/cart"/>
+            )
+        }
+    }
 
     PageRedirectToLogin=()=>{
         if(this.state.RedirectToLogin===true){
@@ -375,7 +377,7 @@ class ProductDetails extends Component {
                                         <div className="input-group mt-3">
                                             <button onClick={this.addToCart} className="btn site-btn m-1 "> <i className="fa fa-shopping-cart"/> {this.state.addToCart}</button>
                                             <button onClick={this.orderNow} className="btn btn-primary m-1"> <i className="fa fa-car"/>{this.state.orderNow}</button>
-                                            <button onClick={this.addToFav} className="btn btn-primary m-1"> <i className="fa fa-heart"/> {this.state.addToFav}</button>
+                                            {/* <button onClick={this.addToFav} className="btn btn-primary m-1"> <i className="fa fa-heart"/> {this.state.addToFav}</button> */}
                                         </div>
                                     </Col>
                             </Row>
@@ -397,7 +399,7 @@ class ProductDetails extends Component {
                 </Container>
                 <SuggestedProducts subcategory={subcategory}/>
                 {this.PageRefresh()}
-                {/*{this.PageRedirect()}*/}
+                {this.PageRedirect()}
                 {this.PageRedirectToLogin()}
             </Fragment>
         );

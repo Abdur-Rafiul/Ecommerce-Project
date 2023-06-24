@@ -140,7 +140,7 @@ class FooterDesktop extends Component {
                     <Container fluid={true} className="m-0 ps-0 pe-0 pt-3 pb-1 bg-dark ">
                         <Container className="">
                             <Row className="px-0 text-white">
-                            <p> {ReactHtmlParser(this.state.deliveryNotice)} </p>
+                            <p> Fahima </p>
                             </Row>
                         </Container>
                     </Container>

@@ -28,6 +28,14 @@ class UserOnboard extends Component {
             return(
                 <Redirect to="/"/>
             )
+            // if(SessionHelper.GetRedirectFromDetails()){
+            //     return(
+            //         <Redirect to={SessionHelper.GetRedirectFromDetails()}/>
+            //     )
+            // }else{
+                
+            // }
+            
         }
     }
 

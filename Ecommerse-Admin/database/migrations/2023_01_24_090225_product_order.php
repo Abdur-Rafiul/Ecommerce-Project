@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('email',1000);
             $table->string('payment_method',1000);
             $table->string('delivery_address',1000);
+            $table->string('name',100);
             $table->string('city',255);
             $table->string('delivery_charge',1000);
             $table->string('order_date',1000);

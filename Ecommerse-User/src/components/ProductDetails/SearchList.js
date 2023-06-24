@@ -12,7 +12,7 @@ class SearchList extends Component {
                 return <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
                     <Link to={"/productDetails/"+ProductList.product_code}>
                         <Card className="card h-100 w-100  image-box ">
-                            <img src={ProductList.images}/>
+                            <img src={ProductList.image}/>
                             <Card.Body>
                                 <h5 className="product-name-on-card">{ProductList.title }</h5>
                                 <p className="product-price-on-card">Price: { ProductList.price}TK</p>
@@ -26,7 +26,7 @@ class SearchList extends Component {
                 return <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6} >
                     <Link to={"/productDetails/"+ProductList.product_code}>
                         <Card className="card h-100 w-100  image-box ">
-                            <img src={ProductList.images}/>
+                            <img src={ProductList.image}/>
                             <Card.Body>
                                 <h5 className="product-name-on-card">{ProductList.title }</h5>
                                 <p className="product-price-on-card">

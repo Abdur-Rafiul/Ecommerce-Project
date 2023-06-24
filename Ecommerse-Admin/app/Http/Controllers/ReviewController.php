@@ -10,7 +10,7 @@ class ReviewController extends Controller
 
      $product_name = $request->input('product_name');
      $product_code = $request->input('product_code');
-     $mobile = $request->input('mobile');
+     $mobile = $request->input('email');
      $reviewer_photo = $request->input('reviewer_photo');
      $reviewer_name = $request->input('reviewer_name');
      $reviewer_rating = $request->input('reviewer_rating');
@@ -27,8 +27,9 @@ class ReviewController extends Controller
 
      ]);
 
-
+       return $result;
     }
+
 
     function reviewList(Request $request){
 

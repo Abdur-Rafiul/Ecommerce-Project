@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('title');
             $table->string('sub_title');
-            $table->string('product_Code');
+            $table->string('product_code');
 
 
 

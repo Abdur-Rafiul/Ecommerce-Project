@@ -48,6 +48,9 @@ class ApiURL{
   static favList(email){
     return this.BaseUrl+"favList/"+email;
   }
+  static favList1(email){
+    return this.BaseUrl+"favList1/"+email;
+  }
   static removeFavItem(email,code){
     return this.BaseUrl+"removeFavItem/"+code+"/"+email;
   }
@@ -71,6 +74,10 @@ class ApiURL{
 
   
   static CartOrder = this.BaseUrl+"CartOrder"
+  static online_payment = this.BaseUrl+"payment"
+  static postReview = this.BaseUrl+"postReview"
+
+
 
   static OrderListByUser(email){
     return this.BaseUrl+"OrderListByUser/"+email;

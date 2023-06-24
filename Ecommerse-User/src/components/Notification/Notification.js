@@ -44,11 +44,11 @@ class Notification extends Component {
                     <>
                     <Col className="mt-5 d-flex justify-content-around p-1" md={12} lg={12} sm={12} xs={12}>
                         <div className="float-left w-75">
-                            <h6 className="notification-title"> {Mylist.title}</h6>
-                            <p className="py-1  px-0 notification-date m-0"><i className="fa  fa-bell"/>  {Mylist.date}</p>
+                            <h6 className="notification-title"> {Mylist.subject}</h6>
+                            <p className="py-1  px-0 notification-date m-0"><i className="fa  fa-bell"/>  {Mylist.notifications_date}</p>
                         </div>
                         <div className="float-right px-2 w-25">
-                            <button data-msg={Mylist.msg} data-date={Mylist.date} data-title={Mylist.title} onClick={this.handleShow} className="btn btn-sm site-btn">Details</button>
+                            <button data-msg={Mylist.msg} data-date={Mylist.notifications_date} data-title={Mylist.subject} onClick={this.handleShow} className="btn btn-sm site-btn">Details</button>
                         </div>
                     </Col>
                     <hr className="bg-light w-100"/>

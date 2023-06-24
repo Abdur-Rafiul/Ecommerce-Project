@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductDetailsController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\FavListController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -58,4 +59,9 @@ Route::get('/OrderListByUser/{email}',[ProductOrderController::class, 'OrderList
 Route::get('/addFav/{code}/{email}',[FavListController::class, 'addFav']);
 Route::get('/favList/{email}',[FavListController::class, 'favList']);
 Route::get('/removeFavItem/{code}/{email}',[FavListController::class, 'removeFavItem']);
+Route::get('/favList1/{email}',[FavListController::class, 'FavCount']);
 
+///Payment Gateway
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+Route::post('/success', [PaymentController::class, 'success'])->name('success');
+Route::post('/fail', [PaymentController::class, 'fail'])->name('fail');

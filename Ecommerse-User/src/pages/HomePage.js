@@ -10,6 +10,7 @@ import HomeTopMobile from "../components/home/HomeTopMobile";
 import FooterDeskTop from "../components/common/FooterDeskTop";
 import axios from 'axios';
 import ApiURL from '../api/AppURL';
+import SliderHome from '../components/home/SliderHome';
 
 class HomePage extends Component {
 
@@ -38,7 +39,8 @@ class HomePage extends Component {
                     <HomeTopMobile/>
                 </div>
 
-                <NewArrival />
+                
+                {/* <NewArrival /> */}
                 <FeaturedProducts />
                 <Collection />
                 <Categories />

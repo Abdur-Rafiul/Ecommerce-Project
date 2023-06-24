@@ -86,8 +86,8 @@
                             <div class="col-md-4 col-sm-12 col-12">
                                 <label>Remarks</label>
                                 <select id="remark" class="form-control">
-                                    <option value="NEW">NEW</option>
-                                    <option value="TOP">TOP</option>
+                                    {{-- <option value="NEW">NEW</option>
+                                    <option value="TOP">TOP</option> --}}
                                     <option value="COLLECTION">COLLECTION</option>
                                     <option value="FEATURED">FEATURED</option>
                                 </select>

@@ -19,7 +19,9 @@ class NavMenuDeskTop extends Component {
             userLoading: "",
             userLogin: "d-none",
             CartCount:0,
-        }
+            FavCount:0,
+            RedirectToLogin:false,     
+           }
         this.SearchChange = this.SearchChange.bind(this)
         this.SearchOnClick = this.SearchOnClick.bind(this)
         this.SearchRedirect = this.SearchRedirect.bind(this)
@@ -37,8 +39,8 @@ class NavMenuDeskTop extends Component {
 
                     // SessionHelper.setUserName(userName)
                     cogoToast.success(response.data.data.message, { position: 'bottom-center' });
-
-
+                     
+                    this.setState({RedirectToLogin:true})
                 }
             })
             .catch((errors) => {
@@ -47,6 +49,12 @@ class NavMenuDeskTop extends Component {
             });
         SessionHelper.removeUser();
         this.setState({ RedirectHome: true });
+    }
+
+    PageRedirectToLogin=()=>{
+        if(this.state.RedirectToLogin===true){
+            return <Redirect to="/onboard"/>
+        }
     }
 
     SearchChange(event) {
@@ -79,6 +87,14 @@ class NavMenuDeskTop extends Component {
     
         axios.get(ApiURL.CartCount(SessionHelper.getUserEmail())).then((res)=>{
               this.setState({CartCount:res.data})
+             // alert(res.data)
+        }).catch((error)=>{
+        
+        
+        })
+
+        axios.get(ApiURL.favList1(SessionHelper.getUserEmail())).then((res)=>{
+              this.setState({FavCount:res.data})
              // alert(res.data)
         }).catch((error)=>{
         
@@ -138,13 +154,14 @@ class NavMenuDeskTop extends Component {
                         </Col>
 
                         <Col lg={4} md={4} sm={12} xs={12}>
-                            <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
-                            <Link to="/notification" className="btn"><i className="fa h4 fa-bell"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
+                            {/* <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i><sup><span className="badge bg-danger">{this.state.FavCount}</span> </sup></Link> */}
+                            <Link to="/notification" className="btn"><i className="fa h4 fa-bell"></i><sup><span className="badge bg-danger">{this.state.FavCount}</span> </sup></Link>
                             <Link to="/onboard" className="h4 btn btn-danger">Login</Link>
 
                         </Col>
                     </Row>
                     {this.SearchRedirect()}
+                    {this.PageRedirectToLogin()}
                 </Container>
 
 
@@ -173,8 +190,8 @@ class NavMenuDeskTop extends Component {
                         </Col>
 
                         <Col lg={4} md={4} sm={12} xs={12}>
-                            <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
-                            <Link to="/notification" className="btn"><i className="fa h4 fa-bell"></i><sup><span className="badge bg-danger">4</span> </sup></Link>
+                            {/* <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i><sup><span className="badge bg-danger">{this.state.FavCount}</span> </sup></Link> */}
+                            <Link to="/notification" className="btn"><i className="fa h4 fa-bell"></i><sup><span className="badge bg-danger">{this.state.FavCount}</span> </sup></Link>
                             <span className={this.state.userLoading}>
                                 <button class="btn btn-danger" type="button" >
                                     <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -189,7 +206,7 @@ class NavMenuDeskTop extends Component {
 
                                     <Dropdown.Menu>
                                         <Link className="btn"  to="/order">Order List</Link><br/>
-                                        <Link className="btn" to="/favourite">Favorite List</Link>
+                                        {/* <Link className="btn" to="/favourite">Favorite List</Link> */}
                                         <Dropdown.Item onClick={this.signOut}>SIGN OUT</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
@@ -199,6 +216,7 @@ class NavMenuDeskTop extends Component {
                     </Row>
                     {this.SearchRedirect()}
                     {this.RedirectHome()}
+                    {this.PageRedirectToLogin()}
                 </Container>
 
 
