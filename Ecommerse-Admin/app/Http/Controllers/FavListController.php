@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartModel;
 use App\Models\FavListModel;
 use App\Models\ProductListModel;
 use Illuminate\Http\Request;
@@ -32,5 +33,14 @@ class FavListController extends Controller
         $email = $request->email;
         $result = FavListModel::where('mobile',$email)->where('product_code',$code)->delete();
         return $result;
+    }
+
+    function FavCount(Request $request)
+    {
+
+        $userEmail = $request->email;
+        $result = FavListModel::Where('mobile', $userEmail)->count();
+        return $result;
+//        dd($result);
     }
 }

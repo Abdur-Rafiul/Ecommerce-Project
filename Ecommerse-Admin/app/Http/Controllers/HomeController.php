@@ -9,6 +9,7 @@ use App\Models\notificationModel;
 use App\Models\ProductOrderModel;
 use App\Models\visitorModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
         return view('index');
     }
 
-    function HomeSummary(){
+    function HomeSummary(Request $request){
         $pending='pending';
         $TotalAdmin=0;
         $TotalContact=contactModel::count();
@@ -36,6 +37,9 @@ class HomeController extends Controller
             'TotalPendingOrder'=>$TotalPendingOrder,
         ];
 
+//        if (Session::get('email1')) {
+//            return json_encode($SummaryArray);
+//        }
         return json_encode($SummaryArray);
     }
 }

@@ -6,6 +6,7 @@
     box-shadow: 0 0 4px 0 rgba(57, 78, 234, 0.1);
 
 }
+
 .card:hover {
     border-radius: 0% !important;
     text-decoration: none;
@@ -17,6 +18,7 @@
     margin: auto;
     overflow: hidden!important;
     width: 100% !important;
+    height: 300px!important;
 
 }
 .image-box img {

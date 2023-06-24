@@ -17,8 +17,8 @@
                                 <th>Invoice No</th>
                                 <th>Product Item</th>
                                 <th>Total Price</th>
-                                <th>Mobile No</th>
-                                <th>Customer Name</th>
+                                <th>Email</th>
+{{--                                <th>Customer Name</th>--}}
                                 <th>Payment Method</th>
                                 <th>Pay. No</th>
                                 <th>trxn ID</th>
@@ -140,11 +140,11 @@
                             "<td>"+(i+1)+"</td>" +
                             "<td>"+item['order_date']+"</td>" +
                             "<td>"+item['order_time']+"</td>" +
-                            "<td>"+item['invoice_no']+"</td>" +
-                            "<td> " + "<span  data-reference="+item['invoice_no']+" style='font-size:25px;'  class='VewDetailsBtn text-dark'><i class='fas fa-eye'></i></span> " + "</td>"+
+                            "<td>"+item['invoice']+"</td>" +
+                            "<td> " + "<span  data-reference="+item['invoice']+" style='font-size:25px;'  class='VewDetailsBtn text-dark'><i class='fas fa-eye'></i></span> " + "</td>"+
                             "<td>"+item['total_price']+"</td>" +
-                            "<td>"+item['mobile']+"</td>" +
-                            "<td>"+item['name']+"</td>" +
+                            "<td>"+item['email']+"</td>" +
+                            // "<td>"+item['name']+"</td>" +
                             "<td>"+item['payment_method']+"</td>" +
                             "<td>"+item['payment_number']+"</td>" +
                             "<td>"+item['trx']+"</td>" +
@@ -154,9 +154,9 @@
                             "<div class='dropdown'>" +
                             "<button class='btn btn-sm btn-dark dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Dropdown button</button>" +
                             "<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>" +
-                            "<a class='dropdown-item deleteItem' data-id="+item['invoice_no']+" href='#'>Delete</a>"+
-                            "<a class='dropdown-item statusChange' data-id="+item['invoice_no']+" href='#'>Change Status</a>"+
-                            "<a class='dropdown-item invoice' data-id="+item['invoice_no']+" href='#'>Print Invoice</a>"+
+                            "<a class='dropdown-item deleteItem' data-id="+item['invoice']+" href='#'>Delete</a>"+
+                            "<a class='dropdown-item statusChange' data-id="+item['invoice']+" href='#'>Change Status</a>"+
+                            "<a class='dropdown-item invoice' data-id="+item['invoice']+" href='#'>Print Invoice</a>"+
                             "</div>" +
                             "</div>" +
                             "</td>" +
@@ -255,6 +255,7 @@
 
         function ProductOrderDelete(deleteID,DeleteBtn){
 
+            //alert(deleteID)
             DeleteBtn.html(ActionSpinnerBtn);
 
             let URL="/ProductOrderDelete";
@@ -337,20 +338,20 @@
                     let Subtotal=JSON['sub_total'];
 
                     $('#invoice_date').html(InvoiceData[0]['order_date']);
-                    $('#invoice_number').html(InvoiceData[0]['invoice_no']);
+                    $('#invoice_number').html(InvoiceData[0]['invoice']);
                     $('#invoice_customer').html(InvoiceData[0]['name']);
                     $('#invoice_cust_address').html(InvoiceData[0]['delivery_address']);
-                    // $('#delivery_charge').html(InvoiceData[0]['delivery_charge']);
+                     $('#delivery_charge').html(InvoiceData[0]['delivery_charge']);
                     let total_price_tk=InvoiceData[0]['total_price'];
                     let splitData= total_price_tk.split(" ");
                     let deliveryChargeTk=InvoiceData[0]['delivery_charge'];
                     let deliveryChargeSplit= deliveryChargeTk.split(" ");
                     let deliveryCharge=deliveryChargeSplit[0];
-                    // let totalPrice= parseFloat(Subtotal)+parseFloat(deliveryCharge);
+                     let totalPrice= parseFloat(Subtotal)+parseFloat(deliveryCharge);
 
                     $('#invoice_subtotal').html(Subtotal+' TK');
-                    // $('#total_price').html(totalPrice+' TK');
-                    //sobuj
+                     $('#total_price').html(totalPrice+' TK');
+                    //fahima
                     $('#invoiceItemTable').empty();
                     $.each(InvoiceData,function (i,item){
                         let unitPriceTk=item['unit_price'];

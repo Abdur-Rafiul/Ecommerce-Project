@@ -46,6 +46,17 @@ class SessionHelper{
     }
 
 
+    static SetRedirectFromDetails(winlocation){
+    
+         sessionStorage.setItem("winlocation",winlocation)
+    }
+
+    static GetRedirectFromDetails(){
+    
+        return sessionStorage.getItem('winlocation')
+    }
+
+
 }
 
 export default SessionHelper;

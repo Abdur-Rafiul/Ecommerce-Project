@@ -26,7 +26,7 @@ class MegaMenu extends Component {
        let MyView = ParentList.map((ParentList,i)=>{
             return <div key={i.toString()}>
 
-                <button onClick={this.MenuItemClick} className="accordion"><img className="accordionMenuIcon"  src={'http://'+ParentList.ParentCategoryImg} />{ParentList.ParentCategoryName}</button>
+                <button onClick={this.MenuItemClick} className="accordion"><img className="accordionMenuIcon"  src={ParentList.ParentCategoryImg} />{ParentList.ParentCategoryName}</button>
 
                 <div className="panel">
                     <ul>

@@ -95,7 +95,6 @@ class ProductListController extends Controller
             'subcategory'=>$subcategory,
             'remark'=>$remark,
             'brand'=>$brand,
-            'shop'=>$shop_code,
             'shop_name'=>$shop_name,
             'star'=>$star,
             'product_code'=>$product_code,

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ECOM ADMIN</title>
+    <title>Fahima E-Commerce Website</title>
     <link rel="stylesheet" href="{{asset('fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/OverlayScrollbars.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/adminlte.css')}}">
@@ -19,7 +19,7 @@
     <script src="{{asset('js/jquery.min.js')}}"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet"> </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body style="background-color: #fbf6f0!important;color: black" class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
     <nav class="main-header navbar shadow-sm navbar-expand navbar-white navbar-light">
         <ul class="navbar-nav">
@@ -42,7 +42,7 @@
                     <div class="dropdown-divider"></div>
                     <a href="#" data-toggle="modal" data-target="#CreateNotificationModal" class="dropdown-item ">Create New</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Notification History</a>
+                    <a href="{{url('/NotificationListPage')}}" class="dropdown-item">Notification History</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -60,11 +60,10 @@
             </li>
         </ul>
     </nav>
-    <aside class="main-sidebar sidebar-dark-danger elevation-1">
+    <aside  class="main-sidebar sidebar-dark-danger elevation-1">
         <a href="/" class="brand-link">
-            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">ECOM</span>
+
+            <span class="brand-text font-weight-light">Fahima Ecommerce</span>
         </a>
         <div class="sidebar ">
             <nav class="mt-2 pb-4">
@@ -89,10 +88,10 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="{{url('/OtpListPage')}}" class="nav-link"><i class="nav-icon far fa-envelope"></i><p>OTP History</p>
-                        </a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{url('/OtpListPage')}}" class="nav-link"><i class="nav-icon far fa-envelope"></i><p>OTP History</p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
                     <li class="nav-item">
                         <a href="{{url('/ContactListPage')}}" class="nav-link"><i class="nav-icon far fa-envelope"></i><p>Contact</p>
@@ -193,6 +192,12 @@
 
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview">
+                        <a href="{{url('/SliderListPage')}}" class="nav-link"><i class="fas fa-store nav-icon"></i>
+                            <p>Slider<i class="right fas fa-angle-left"></i></p>
+                        </a>
+
+                    </li>
 
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link"><i class="nav-icon fab fa-product-hunt"></i>
@@ -229,12 +234,12 @@
                                     <p>Product Details</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{url('/SliderListPage')}}" class="nav-link">
                                     <i class="fas fa-list-alt nav-icon"></i>
                                     <p>Slider</p>
                                 </a>
-                            </li>
+                            </li> --}}
 
                         </ul>
                     </li>

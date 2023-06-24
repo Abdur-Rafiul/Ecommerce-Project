@@ -19,7 +19,6 @@ class ProductDetailsPage extends Component {
         }
     }
     componentDidMount() {
-        console.log(1)
         window.scroll(0, 0);
 
         axios

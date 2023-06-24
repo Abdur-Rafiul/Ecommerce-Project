@@ -17,15 +17,16 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('price');
+            $table->string('shop_name');
             $table->string('special_price');
-            $table->string('images');
             $table->string('image');
             $table->string('category');
             $table->string('subcategory');
             $table->string('remark');
             $table->string('brand');
-            $table->string('start');
             $table->string('product_code');
+            $table->integer('star');
+            $table->string('stock');
 
 
 

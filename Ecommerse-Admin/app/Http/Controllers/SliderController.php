@@ -16,6 +16,7 @@ class SliderController extends Controller
     }
 
     function SliderListPage(){
+
         return view('Product.Slider');
     }
 

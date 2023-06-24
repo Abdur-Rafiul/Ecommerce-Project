@@ -38,12 +38,12 @@ use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\SiteSEOController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SMSTestController;
-use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\VisitorListController;
 
 
-Route::get('/', [HomeController::class, 'HomePage']);
+Route::get('/', [HomeController::class, 'HomePage'])->middleware('loginCheck');;
 Route::get('/HomeSummary', [HomeController::class, 'HomeSummary'])->middleware('loginCheck');
 
 //login
@@ -177,28 +177,32 @@ Route::post('/ProductOrderDetailsData', [ProductOrderController::class, 'Product
 Route::post('/ProductOrderDelete', [ProductOrderController::class, 'ProductOrderDelete'])->middleware('loginCheck');
 Route::post('/ProductOrderStatusEdit', [ProductOrderController::class, 'ProductOrderStatusEdit'])->middleware('loginCheck');
 Route::post('/ProductOrderInvoiceData', [ProductOrderController::class, 'ProductOrderInvoiceData'])->middleware('loginCheck');
+Route::get('/OrderListByUser', [ProductOrderController::class, 'OrderListByUser'])->middleware('loginCheck');
 
 //Product Review
 Route::get('/ProductReviewPage', [ProductReviewController::class, 'ProductReviewPage'])->middleware('loginCheck');
 Route::get('/ProductReviewData', [ProductReviewController::class, 'ProductReviewData'])->middleware('loginCheck');
 Route::post('/ProductReviewDelete', [ProductReviewController::class, 'ProductReviewDelete'])->middleware('loginCheck');
+Route::post('/postReview', [\App\Http\Controllers\ReviewController::class, 'postReview'])->middleware('loginCheck');
 
-//sms test
-Route::get('/smsTest', [SMSTestController::class, 'smsTest']);
-Route::get('/PaymentTest', [PaymentTestController::class, 'PaymentTest']);
+// //sms test
+// Route::get('/smsTest', [SMSTestController::class, 'smsTest']);
+// Route::get('/PaymentTest', [PaymentTestController::class, 'PaymentTest']);
 
 // SSLCOMMERZ Start
-Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->middleware('loginCheck');
-Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->middleware('loginCheck');
+// Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->middleware('loginCheck');
+// Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->middleware('loginCheck');
 
-Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->middleware('loginCheck');
-Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax'])->middleware('loginCheck');
+// Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->middleware('loginCheck');
+// Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax'])->middleware('loginCheck');
 
-Route::post('/success', [SslCommerzPaymentController::class, 'success'])->middleware('loginCheck');
-Route::post('/fail', [SslCommerzPaymentController::class, 'fail'])->middleware('loginCheck');
-Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel'])->middleware('loginCheck');
+// Route::post('/success', [SslCommerzPaymentController::class, 'success'])->middleware('loginCheck');
+// Route::post('/fail', [SslCommerzPaymentController::class, 'fail'])->middleware('loginCheck');
+// Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel'])->middleware('loginCheck');
 
-Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn'])->middleware('loginCheck');
-//SSLCOMMERZ END
+// Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn'])->middleware('loginCheck');
+// //SSLCOMMERZ END
+
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 
 

@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d180353b-a939-4db4-a052-7ab76411a1dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductDetailsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/AdminLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/AdminLoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/FavListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/FavListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ProductOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SiteinfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SiteinfoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/ReviewController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/app/Http/Controllers/SliderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/database/migrations/2022_10_26_091745_slider_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/database/migrations/2022_10_26_091745_slider_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Product/Slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Product/Slider.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/bootstrap.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Layout/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Order/ProductOrder.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Order/ProductOrder.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Shop/Shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/resources/views/Shop/Shop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ecommerse-Admin/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Ecommerse-Admin/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "D:/Laravel Project/laravel-pharmacy-website/samira_pharmacy_website",
+    "last_opened_file_path": "D:/Laravel Project/diu-pharmacy/daffodil_pharmacy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -101,6 +106,11 @@
       <workItem from="1669309737876" duration="30000" />
       <workItem from="1674063308223" duration="759000" />
       <workItem from="1675157114622" duration="8453000" />
+      <workItem from="1679120193550" duration="612000" />
+      <workItem from="1679651482049" duration="622000" />
+      <workItem from="1680969500319" duration="950000" />
+      <workItem from="1681019427609" duration="9397000" />
+      <workItem from="1681109252251" duration="43000" />
     </task>
     <servers />
   </component>

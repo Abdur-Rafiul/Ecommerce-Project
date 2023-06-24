@@ -12,10 +12,10 @@
         font-size: 13px;
     }
     .Mobile{
-
+        display: none;
     }
     .Desktop{
-        display: none;
+      
     }
     .slider-img{
         height: 180px;
@@ -48,10 +48,10 @@
         padding-top: 50px!important;
     }
     .Mobile{
-
+        display: none;
     }
     .Desktop{
-        display: none;
+ 
     }
     .TopSection{
         margin-top: 50px;
@@ -77,10 +77,10 @@
         font-size: 13px;
     }
     .Mobile{
-
+        display: none;
     }
     .Desktop{
-        display: none;
+        
     }
 
     .slider-img{
@@ -104,10 +104,10 @@
         font-size: 13px;
     }
     .Mobile{
-
+        display: none;
     }
     .Desktop{
-        display: none;
+        
     }
     .slider-img{
         height: 180px;

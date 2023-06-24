@@ -31,10 +31,10 @@ class Collection extends Component {
         let MyView = MyList.map((ProductList,i)=> {
 
             if(ProductList.special_price == "NA"){
-                return  <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
+                return  <Col className="p-2" xl={4} lg={4} md={4} sm={6} xs={6}>
                     <Link to={"ProductDetails/"+ProductList.product_code}>
-                    <Card className="image-box1 card w-100">
-                        <img className="" src={ProductList.images} alt="shoes"/>
+                    <Card className="image-box card w-75">
+                        <img className="" src={ProductList.image} alt=""/>
                         <Card.Body>
                             <p className="product-name-on-card">{ProductList.title}</p>
                             <p className="product-price-on-card">Price: {ProductList.price}</p>
@@ -44,10 +44,10 @@ class Collection extends Component {
                     </Link>
                 </Col>
             }else{
-                return  <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
+                return  <Col className="p-1" xl={3} lg={3} md={3} sm={6} xs={6}>
                     <Link to={"ProductDetails/"+ProductList.product_code}>
-                    <Card className="image-box1 card w-100">
-                        <img className="" src={ProductList.images} alt="shoes"/>
+                    <Card className="image-box card w-100">
+                        <img className="" src={ProductList.image} alt=""/>
                         <Card.Body>
                             <p className="product-name-on-card">{ProductList.title}</p>
                             <p className="product-price-on-card"><strike><span className="text-muted">Price: {ProductList.price}</span></strike> {ProductList.special_price}</p>
@@ -66,7 +66,7 @@ class Collection extends Component {
             <Fragment>
                 <SpecialCollectionPlaceholder isLoading={this.state.isLoading}/>
                 <div className={this.state.MainDiv}>
-                    <Container className="text-center card p-3 mb-3" fluid={true}>
+                    <Container className="text-center card1 p-3 mb-5" fluid={true}>
 
                         <h5 className="section-title">SPECIAL COLLECTIONS</h5>
                         <p className="section-sub-title">Some of Exclusive Collection, you May Like</p>
